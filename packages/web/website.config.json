@@ -1,0 +1,8 @@
+{
+    "id": "website",
+    "name": "Brooklyn Tokes",
+    "description": "A template for building a React application with Vite, Hono, and Cloudflare Workers",
+    "url": "https://example.com",
+    "hostname": "www.bksmarts.com",
+    "port": 8080
+}
