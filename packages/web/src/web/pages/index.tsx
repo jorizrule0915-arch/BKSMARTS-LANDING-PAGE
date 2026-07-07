@@ -123,6 +123,7 @@ const PRODUCTS = [
     tag: "Bestseller",
     desc: "14oz heavyweight fleece, boxy cut, puff-print 8-bit leaf on the chest.",
     img: "/products/hoodie1.jpg",
+    href: "https://www.bksmarts.com/product-page/pixels-weed-leaf-unisex-hoodie",
   },
   {
     name: "Camo Leaf Pullover",
@@ -130,6 +131,7 @@ const PRODUCTS = [
     tag: "New Drop",
     desc: "Garment-dyed hoodie, brushed interior, tonal camo leaf graphic.",
     img: "/products/hoodie5.jpg",
+    href: "https://www.bksmarts.com/product-page/camo-weed-leaf-unisex-hoodie",
   },
   {
     name: "Broken Heart Hoodie",
@@ -137,6 +139,7 @@ const PRODUCTS = [
     tag: "Bestseller",
     desc: "Heavyweight cotton-blend hoodie, cracked-heart leaf print, boxy fit.",
     img: "/products/hoodie3.jpg",
+    href: "https://www.bksmarts.com/product-page/weed-leaf-heart-unisex-hoodie",
   },
   {
     name: "BKT Coin Tee",
@@ -144,6 +147,7 @@ const PRODUCTS = [
     tag: "Classic",
     desc: "Heavyweight cotton, oversized fit, embroidered-style coin graphic.",
     img: "/products/p1.jpg",
+    href: "https://www.bksmarts.com/product-page/unisex-classic-tee",
   },
   {
     name: "Good Vibes Tee",
@@ -151,6 +155,7 @@ const PRODUCTS = [
     tag: "Summer",
     desc: "Relaxed heavyweight tee, script leaf graphic, garment-washed maroon.",
     img: "/products/p5.jpg",
+    href: "https://www.bksmarts.com/product-page/good-vibes",
   },
   {
     name: "BKT Coin Crop",
@@ -158,6 +163,7 @@ const PRODUCTS = [
     tag: "Accessory",
     desc: "Cropped fit tee, same coin graphic, cut close for a boxy silhouette.",
     img: "/products/p3.jpg",
+    href: "https://www.bksmarts.com/product-page/women-s-crop-top",
   },
 ];
 
@@ -275,18 +281,26 @@ export default function Index() {
           {PRODUCTS.map((p, i) => (
             <Reveal key={p.name} delay={i * 80}>
               <article className="bt-card p-6 h-full flex flex-col">
-                <div className="aspect-[4/5] mb-5 relative overflow-hidden bg-[#111]">
+                <a
+                  href={p.href}
+                  className="group/product-image aspect-[4/5] mb-5 relative overflow-hidden bg-[#111] block"
+                  aria-label={`View ${p.name} on Brooklyn Tokes`}
+                >
                   <img
                     src={p.img}
                     alt={p.name}
-                    className="w-full h-full object-cover object-top mix-blend-normal"
+                    className="w-full h-full object-cover object-top mix-blend-normal transition-transform duration-300 group-hover/product-image:scale-105"
                     loading="lazy"
                   />
                   <span className="bt-tag absolute top-3 left-3 text-[10px] bg-[var(--bt-ink)]">
                     {p.tag}
                   </span>
-                </div>
-                <h3 className="bt-display text-2xl mb-2">{p.name}</h3>
+                </a>
+                <h3 className="bt-display text-2xl mb-2">
+                  <a href={p.href} className="hover:text-[var(--bt-rust)] transition-colors">
+                    {p.name}
+                  </a>
+                </h3>
                 <p className="text-sm text-[var(--bt-bone)]/70 mb-5 flex-1">
                   {p.desc}
                 </p>
@@ -294,8 +308,8 @@ export default function Index() {
                   <span className="bt-mono text-sm" style={{ color: "var(--bt-rust)" }}>
                     {p.price}
                   </span>
-                  <a href="#access" className="bt-mono text-xs underline underline-offset-4">
-                    View
+                  <a href={p.href} className="bt-mono text-xs underline underline-offset-4">
+                    View Product
                   </a>
                 </div>
               </article>
