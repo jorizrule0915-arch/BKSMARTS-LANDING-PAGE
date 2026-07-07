@@ -53,6 +53,10 @@ The desktop app has no separate renderer by default. It loads the web app from `
 
 Dev servers are started and managed automatically — no need to run them manually.
 
+## Deployment
+
+Production deploys from the `main` branch on Vercel.
+
 ## Database
 
 ```sh
