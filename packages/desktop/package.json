@@ -6,6 +6,7 @@
   "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite",
+    "build:web": "bun ../../tools/build-web.mjs",
     "build": "vite build",
     "dist": "vite build && electron-builder",
     "typecheck": "tsc --noEmit"

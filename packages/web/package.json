@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "tsc -b --noEmit && vite build",
-    "build:web": "bun run build",
+    "build:web": "bun ../../tools/build-web.mjs",
     "dev": "vite",
     "start": "bun src/server.ts",
     "typecheck": "tsc -b --noEmit",
